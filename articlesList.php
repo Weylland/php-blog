@@ -1,9 +1,8 @@
 <?php
     require "header.php";
     require "includes/dbh.inc.php";
-
     $sqlarticles = "
-        SELECT users.username, art.article_text, art.article_date, art.article_title
+        SELECT users.username, art.article_text, art.article_date, art.article_title, art.id_article
         FROM users 
         INNER JOIN articles AS art
         ON users.id_user = art.id_user ";
@@ -23,7 +22,7 @@
                     <p class="lead"><?= $previewArticle[0]; $previewArticle[1]; ?></p>
                     <hr class="my-4">
                     <p>Poster le <?= $article['article_date']; ?> par <?= $article['username']; ?></p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Voir l'article</a>
+                    <a class="btn btn-primary btn-lg" href="article.php?id=<?= $article['id_article']; ?>" role="button">Voir l'article</a>
                 </div>
             <?php endforeach; ?>
         </div>
