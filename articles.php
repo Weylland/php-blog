@@ -1,0 +1,34 @@
+<?php
+    require "header.php";
+    require "includes/dbh.inc.php";
+
+    $sqlarticles = "
+        SELECT users.username, art.article_text, art.article_date, art.article_title
+        FROM users 
+        INNER JOIN articles AS art
+        ON users.id_user = art.id_user ";
+    $stmt = $conn->prepare($sqlarticles);
+    $stmt->execute();
+    $articles = $stmt->fetchAll();
+?>
+
+    <main>
+        <div class="container">
+            <?php foreach($articles as $article): ?>
+            <?php
+                $previewArticle = explode(".", $article['article_text']);
+            ?>
+                <div class="jumbotron m-5">
+                    <h1 class="display-4"><?= $article['article_title']; ?></h1>
+                    <p class="lead"><?= $previewArticle[0]; $previewArticle[1]; ?></p>
+                    <hr class="my-4">
+                    <p>Poster le <?= $article['article_date']; ?> par <?= $article['username']; ?></p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Voir l'article</a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </main>
+    
+<?php
+    require "footer.php";
+?>
