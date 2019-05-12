@@ -10,6 +10,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="src/css/bootstrap.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="plugins/trumbowyg/dist/ui/trumbowyg.min.css">
 </head>
 <body>
     <header>
@@ -39,7 +40,7 @@
                         echo '
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Ajouter un article</a>
+                                    <a class="dropdown-item" href="addarticle.php">Ajouter un article</a>
                                 </div>
                             </div>
                         ';

@@ -14,12 +14,9 @@
     <main>
         <div class="container">
             <?php foreach($articles as $article): ?>
-            <?php
-                $previewArticle = explode(".", $article['article_text']);
-            ?>
                 <div class="jumbotron m-5">
                     <h1 class="display-4"><?= $article['article_title']; ?></h1>
-                    <p class="lead"><?= $previewArticle[0]; $previewArticle[1]; ?></p>
+                    <p class="lead"><?= $article['article_text']; ?></p>
                     <hr class="my-4">
                     <p>Poster le <?= $article['article_date']; ?> par <?= $article['username']; ?></p>
                     <a class="btn btn-primary btn-lg" href="article.php?id=<?= $article['id_article']; ?>" role="button">Voir l'article</a>
